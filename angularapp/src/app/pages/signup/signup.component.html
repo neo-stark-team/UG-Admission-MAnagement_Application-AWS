@@ -1,0 +1,105 @@
+<div class="bootstrap-wrapper"> 
+    <div class="container"> 
+      <div class="row"> 
+        <div class="col-md-6 offset-md-3"> 
+          <mat-card> 
+            <h1 class="text-center">REGISTER</h1> 
+             
+            <form #signupForm="ngForm" (ngSubmit)="formSubmit(); signupForm.resetForm()"> 
+         
+              <!--email--> 
+              <mat-form-field class="full-width" appearance="outline"> 
+                <mat-label>Enter Email</mat-label> 
+                <input  id="email" (blur)="mailExist()" (keyup.enter)="mailExist()" class="form-control" #email="ngModel" [(ngModel)]="user.email" name="email" 
+                  pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" type="email" required matInput placeholder="Ex-abcxyz@gmail.com"> 
+                <div class="error-msg" *ngIf="(email.touched || signupForm.submitted) && email.errors?.required"> 
+                  Email Address is Required! 
+                </div> 
+                <div class="error-msg" *ngIf="(email.touched || signupForm.submitted) && email.errors?.pattern"> 
+                  Enter a valid Email Address 
+                </div> <span class="error-msg">{{mailExistMessage}}</span> 
+               </mat-form-field> 
+ 
+               
+              
+   
+              <!--username--> 
+              <mat-form-field class="full-width" appearance="outline"> 
+                <mat-label>Enter Username</mat-label> 
+                <input  id="username" (blur)="usernameExist()" (keyup.enter)="usernameExist()" class="form-control" #username="ngModel" [(ngModel)]="user.username" name="username" 
+                  pattern="[a-z0-9]{4,18}" type="text" required matInput placeholder="must be small letters and numbers(Ex-abc123)"> 
+                <div class="error-msg" 
+                  *ngIf="(username.touched || signupForm.submitted) && username.errors?.required"> 
+                  Username is Required! 
+                </div> 
+                <div class="error-msg" *ngIf="(username.touched || signupForm.submitted) && username.errors?.pattern"> 
+                  Enter a valid Username 
+                </div><span class="error-msg">{{usernameExistMessage}}</span> 
+              </mat-form-field> 
+                
+              <!--mobile no--> 
+            <mat-form-field class="full-width" appearance="outline"> 
+                <mat-label>Enter Mobile Number</mat-label> 
+                <input  id="mobileNumber" (blur)="mobileNumberExist()" (keyup.enter)="mobileNumberExist()" class="form-control" #mobileno="ngModel" [(ngModel)]="user.mobileNumber" name="mobileNumber" type="number" 
+                  pattern="^[6-9]\d{9}$" required matInput placeholder="1234567890"> 
+                <div class="error-msg" 
+                  *ngIf="(mobileno.touched || signupForm.submitted) && mobileno.errors?.required"> 
+                  Mobile Number is Required! 
+                </div> 
+                <div class="error-msg" *ngIf="(mobileno.touched || signupForm.submitted) && mobileno.errors?.pattern"> 
+                  Enter a valid Mobile Number 
+                </div><span class="error-msg">{{mobilenoExistMessage}}</span> 
+              </mat-form-field> 
+ 
+                <!-- password --> 
+            <mat-form-field class="full-width" appearance="outline"> 
+                <mat-label>Enter Password</mat-label> 
+                <input class="form-control" #password="ngModel" [(ngModel)]="user.password" id="password" name="password" type="text" 
+                  minlength="8" maxlength="12" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required matInput 
+                  placeholder="Must be atleast 1Capital,1small,1digit,1symbol(Ex-Abc@123)" type= 'password'> 
+                <div class="error-msg" 
+                  *ngIf="(password.touched || signupForm.submitted) && password.errors?.required"> 
+                  Password is Required! 
+                </div> 
+                <div class="error-msg" *ngIf="(password.touched || signupForm.submitted) && password.errors?.pattern"> 
+                  Enter a valid Password and Password must be atleast 8 character 
+                </div> 
+              </mat-form-field> 
+ 
+              <!-- confirm passowrd --> 
+            <mat-form-field class="full-width" appearance="outline"> 
+                <mat-label>Enter Confirm Password</mat-label> 
+                <input class="form-control"  #confirmpassword="ngModel" id="confirmPassword" [(ngModel)]="user.confirmpassword" 
+                name="confirmpassword" type="text" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" matInput 
+                placeholder="Confirm Password" minlength="8" maxlength="12" required type= 'password'> 
+                  <div class="error-msg" 
+                  *ngIf="(confirmpassword.touched || signupForm.submitted) && confirmpassword.errors?.required"> 
+                  Confirm password is required! 
+                </div> 
+                <div class="error-msg" 
+                  *ngIf="(confirmpassword.touched || signupForm.submitted) && user.password !==user.confirmpassword"> 
+                  Password & Confirm Password does not match 
+                </div> 
+                 
+              </mat-form-field> 
+ 
+            
+              <div class="container text-center"> 
+                <button type="submit" [disabled]="!signupForm.form.valid" mat-raised-button 
+                  color="primary" (click)="callRegister()" id="submitButton" [disabled]="!(user.password==user.confirmpassword)">REGISTER</button> 
+              </div> 
+              <br> 
+              <div class="container text-center"> 
+                  <small class="text-center" class="mr10 ml20">Already a user ?</small> 
+                <a [routerLink]="'/login'" mat-raised-button color="accent" aria-label=""> 
+                  Login 
+                </a> 
+                <!-- <button mat-raised-button color="RED">LOGIN</button> --> 
+              </div> 
+          
+            </form> 
+          </mat-card> 
+        </div> 
+      </div> 
+    </div> 
+  </div> 

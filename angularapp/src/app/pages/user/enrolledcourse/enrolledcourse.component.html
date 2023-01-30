@@ -1,0 +1,10 @@
+
+<mat-card id="enrolledCourse" *ngIf="user" class="card">
+    <button *ngIf="admission.admissionStatus.statusName!='PENDING' && user.rating==null"mat-raised-button
+    color="primary" class="button" [routerLink]="'rate/'+admission.course.institute.instituteId" >Give Rating</button>
+    <div style="font-size: 18px;">
+    <div>CourseEnrolled:{{admission.course.courseName}}</div>
+    <div>InstituteName:{{admission.course.institute.instituteName}}</div>
+    <div>ApplicationStatus:<b>{{admission.admissionStatus.statusName}}</b></div>
+    </div>
+</mat-card>

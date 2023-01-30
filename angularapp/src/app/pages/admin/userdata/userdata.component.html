@@ -1,0 +1,79 @@
+
+<br/>
+<br/>
+<br/>
+<br/>
+<div class="bootstrap-wrapper" *ngIf="user">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 offset-md-3">
+          <mat-card >
+            <h1 class="text-center">UPDATE USER</h1>
+            
+         
+            <form #signupForm="ngForm" (ngSubmit)="formSubmit()" style="margin-left: 100px;">
+  
+              <!--email-->
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Enter Email</mat-label>
+                <input  id="email" (blur)="mailExist()" (keyup.enter)="mailExist()" class="form-control" #email="ngModel" [(ngModel)]="user.email" name="email"
+                  pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" type="email" required matInput placeholder="Ex-abcxyz@gmail.com">
+                <div class="error-msg" *ngIf="(email.touched || signupForm.submitted) && email.errors?.required">
+                  Email Address is Required!
+                </div>
+                <div class="error-msg" *ngIf="(email.touched || signupForm.submitted) && email.errors?.pattern">
+                  Enter a valid Email Address
+                </div> <span class="error-msg">{{mailExistMessage}}</span>
+               </mat-form-field>
+
+              
+             
+  
+              <!--username-->
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Enter Username</mat-label>
+                <input  id="username" (blur)="usernameExist()" (keyup.enter)="usernameExist()" class="form-control" #username="ngModel" [(ngModel)]="user.username" name="username"
+                  pattern="[a-z0-9]{4,18}" type="text" required matInput placeholder="must be small letters and numbers(Ex-abc123)">
+                <div class="error-msg"
+                  *ngIf="(username.touched || signupForm.submitted) && username.errors?.required">
+                  Username is Required!
+                </div>
+                <div class="error-msg" *ngIf="(username.touched || signupForm.submitted) && username.errors?.pattern">
+                  Enter a valid Username
+                </div><span class="error-msg">{{usernameExistMessage}}</span>
+              </mat-form-field>
+               
+              <!--mobile no-->
+              
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Enter Mobile Number</mat-label>
+                <input  id="mobileNumber" (blur)="mobileNumberExist()" (keyup.enter)="mobileNumberExist()" class="form-control" #mobileno="ngModel" [(ngModel)]="user.mobileNumber" name="mobileNumber" type="number"
+                  pattern="^[6-9]\d{9}$" required matInput placeholder="1234567890">
+                <div class="error-msg"
+                  *ngIf="(mobileno.touched || signupForm.submitted) && mobileno.errors?.required">
+                  Mobile Number is Required!
+                </div>
+                <div class="error-msg" *ngIf="(mobileno.touched || signupForm.submitted) && mobileno.errors?.pattern">
+                  Enter a valid Mobile Number
+                </div><span class="error-msg">{{mobilenoExistMessage}}</span>
+              </mat-form-field>
+
+          
+
+               
+              
+              <a [routerLink]="['changepassword']">change Password</a>
+              <div>
+                <button type="submit" [disabled]="!signupForm.form.valid" mat-raised-button 
+                color="primary" >Edit</button>
+                <button style="margin-left: 35px;" mat-raised-button (click)="cancel()"
+                >Cancel</button>
+              </div>
+              
+              
+            </form>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+  </div>

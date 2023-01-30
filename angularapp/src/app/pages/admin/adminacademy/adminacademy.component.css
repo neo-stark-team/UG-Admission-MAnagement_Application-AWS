@@ -1,0 +1,64 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+
+.card-image{
+  
+  height: 190px;
+  
+  background-size: cover;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.card{
+    background: white;
+    width: 380px;
+    height:450px;
+    margin-top: 15px;
+    margin: 25px;
+    border-radius: 15px;
+}
+.image{
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 15px 15px 0 0;
+    
+}
+
+.set> .but{
+   display: inline-block;
+}
+
+
+
+.desc{
+    height: 18px;
+    background-size: cover;
+
+}
+
+.desc>p{
+    overflow:auto;
+    height: 50px;
+
+}
+
+.center{
+    position: absolute;
+    background-color: aliceblue;
+    color: blue;
+    margin-left: 50px;
+    margin-top: -80px;
+
+}

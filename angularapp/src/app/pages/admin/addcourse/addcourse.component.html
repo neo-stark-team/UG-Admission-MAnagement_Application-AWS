@@ -1,0 +1,81 @@
+
+    <div class="bootstrap-wrapper" style="margin-top: 30px;" > 
+        <div class="container"> 
+            <div class="row"> 
+                <div class="col-md-6 offset-md-3"> 
+                    <mat-card> 
+                       
+                
+                      
+
+
+
+<form #signupForm="ngForm" (ngSubmit)="onSubmit(); signupForm.resetForm() ">  
+  <mat-form-field class="full-width" appearance="outline"> 
+    <mat-label>Select Insitute</mat-label> 
+    <mat-select (selectionChange)="onChange($event)" required name="instituteId" #instituteId> 
+      <mat-option *ngFor="let institute of institutes" [value]="institute.instituteId" > 
+        {{institute.instituteName}} 
+      </mat-option> 
+    </mat-select> 
+    <div class="error-msg" *ngIf="!course.institute.instituteId"> 
+            Institute is Required! 
+          </div> 
+  </mat-form-field> 
+
+      <mat-form-field class="full-width" appearance="outline">
+        
+        
+        <mat-label>Course Name</mat-label> 
+        <input matInput placeholder="Placeholder" class="form-control" id="courseName" name="courseName" #courseName="ngModel"[(ngModel)]="course.courseName"  type="text" required> 
+         <div class="error-msg" *ngIf="(courseName.touched || signupForm.submitted) && courseName.errors?.required"> 
+          course name is Required! 
+        </div> 
+      </mat-form-field> 
+  
+  
+ 
+      <mat-form-field class="full-width" appearance="outline" style="height:100px"> 
+         
+         
+          <mat-label>Enter Description</mat-label> 
+          <input  id="courseDescription"   class="form-control" #courseDescription="ngModel" [(ngModel)]="course.courseDescription" name="courseDescription"  
+          type="text" required matInput placeholder="atleast 10 character" minlength="10" maxlength="150">  
+          <div class="error-msg" *ngIf="(courseDescription.touched || signupForm.submitted) && courseDescription.errors?.required">  
+            course Description is Required! 
+          </div> 
+         
+         </mat-form-field> 
+
+
+  
+         <mat-form-field class="full-width" appearance="outline" style="height:100px"> 
+           
+          <mat-label>Enter Duration in years</mat-label>  
+          <input  id="courseDuration"   class="form-control" #courseDuration="ngModel" [(ngModel)]="course.courseDuration" name="courseDuration" 
+          type="text" required matInput placeholder="atleast 10 character" >  
+          <div class="error-msg" *ngIf="(courseDuration.touched || signupForm.submitted) && courseDuration.errors?.required">  
+            Course Duration is Required! 
+          </div> 
+         
+         </mat-form-field> 
+  
+   
+
+
+
+
+   <div class="container text-center"> 
+      <button type="submit"  [disabled]="!signupForm.form.valid" mat-raised-button 
+        color="primary"  id="submitButton" >Add Course</button> 
+    </div> 
+</form>  
+
+                            
+                    </mat-card> 
+                </div> 
+            </div> 
+        </div> 
+    </div> 
+     
+    

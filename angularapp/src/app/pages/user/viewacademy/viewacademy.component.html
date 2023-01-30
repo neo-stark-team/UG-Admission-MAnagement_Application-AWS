@@ -1,0 +1,59 @@
+
+<br/>  
+
+
+
+<app-search></app-search>  
+
+
+
+<br/>  
+
+
+<section class="container">  
+   
+    <div class="card" *ngFor="let user of institutes" >  
+      
+        <div [routerLink]="user.instituteId">  
+          
+        <div class="card-image" id="userInstituteGrid1" >  
+          
+            
+            <img class="image"  src="assets/college.jpg" alt="college.jpg"  />    
+      
+          
+            </div>  
+          
+        
+            <div style="margin-top: 10px;"><mat-icon>account_balance</mat-icon><span style=" font-size: 24px;">{{user.instituteName|uppercase}}</span></div>  
+          
+            <div class="desc" style="margin-top: 50px;">   
+              
+            <p>{{user.instituteDescription}}</p></div>   
+          
+
+        <div style="margin-top: 60px;overflow:auto;">Place:{{user.instituteAddress}}</div>   
+          
+        <div class="set" style="margin-top: 10px;" >   
+          
+            
+            <span class="child" >{{user.email}}</span>   
+          
+            <span class="child " style="padding-left: 50px;" >mobile:{{user.mobile}}</span>   
+          
+             
+        </div>   
+  
+           
+        <div class="set" >   
+             
+            <span [routerLink]="'reviews/'+user.instituteId" class="child"*ngIf="reviewArray[user.instituteId]!=null"><mat-icon >star_half</mat-icon>{{reviewArray[user.instituteId]}}/5</span> 
+            
+          
+        </div>  
+          
+    </div>   
+         
+    </div>   
+    
+</section>  

@@ -1,0 +1,112 @@
+.search-hero{
+    margin-right: auto;
+    margin-left: auto;
+    width: 150px;
+    font-size: 21px;
+    
+}
+
+.icon{
+    padding:5px;
+    background-color: blue;
+    color:white;
+    max-width: 50px;
+    text-align: center;
+}
+
+.container{
+    font-size: medium;
+}
+.row{
+   
+    margin-left: 25cm;
+
+}
+.aligner{
+    
+    font-size: 18px;
+}
+.colorsetter{
+    background-color: #007bff;
+    color: aliceblue;
+    
+}
+
+.but{
+    padding:5px 10px;
+    
+}
+
+.rows,.head{
+    text-align: center;
+    background-color: whitesmoke;
+}
+.head{
+    background-color:whitesmoke;
+    font-size: 17px;
+   
+    
+
+}
+.inpu{
+   margin: 0px;
+   padding: 0px;
+   background-color: whitesmoke;
+   border-radius: 30px;
+   position: relative;
+}
+
+.lab{
+    background-color:white;
+    position: absolute;
+    right: 0px;
+    top:0px;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.centeraligner{
+    text-align:center;
+    background-color: whitesmoke;
+}
+
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0px 10px;
+    
+  }
+  .margin-cut{
+      margin-left: 50px;
+      margin-right:50px;
+  }
+
+  .tablehead{
+    font-size: 15px;
+    background-color:#007bff;
+    width: 30%;
+    height: 50px;
+    color:white;
+    
+  }
+
+  .ali{
+      position: absolute;
+      right:150px;
+      font-size: small;
+  }
+ 
+  th,td{
+      padding: 5px;
+  }
+  td{
+      text-align: center;
+  }
+
+  td{
+      background-color: whitesmoke;
+  }
+
+  app-search{
+      display: flex;
+  }

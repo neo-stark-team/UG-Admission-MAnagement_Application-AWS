@@ -1,0 +1,43 @@
+
+<br/>
+
+
+<app-search></app-search>
+<button mat-raised-button color="primary" style="margin-left: 50px;" [routerLink]="'add'"><mat-icon>add_circle_outline</mat-icon>Add Institute</button>
+<br/>
+<br/>
+
+<section class="container">
+    <div class="card" *ngFor="let user of institutes| filter:searchtext ">
+        <div class="card-image" id="adminInstituteGrid1">
+            
+            <img class="image"  src="assets/college.jpg" alt="college.jpg"  />
+      
+            </div>
+        
+        <div style="margin-top: 10px;"><mat-icon>account_balance</mat-icon><span style=" font-size: 24px;">{{user.instituteName|uppercase}}</span></div>
+        <div class="desc" style="margin-top: 40px;">Description:
+            <p>{{user.instituteDescription}}</p></div>
+
+        <div style="margin-top: 60px;overflow:auto;">Place:{{user.instituteAddress}}</div>
+        <div class="set" style="margin-top: 10px;" >
+            
+            <span class="child" >Email:{{user.email}}</span>
+            <span class="child " style="padding-left: 15px;" >mobile:{{user.mobile}}</span>
+            
+        </div>
+
+        <div class="set" >
+            
+            <span [routerLink]="'reviews/'+user.instituteId" class="child" *ngIf="reviewArray[user.instituteId]!=null"><mat-icon >star_half</mat-icon>{{reviewArray[user.instituteId]}}/5</span>
+            <span class="child" style="padding-left: 150px;">
+            <button [routerLink]="user.instituteId" mat-icon-button style="color: #00C851;">
+                <mat-icon >mode_edit</mat-icon>
+            </button>
+            <button (click)="deleteInstitute(user.instituteId)" mat-icon-button color="warn">
+                <mat-icon>delete</mat-icon>
+            </button></span>
+        </div>
+    </div>
+    
+</section>

@@ -1,0 +1,56 @@
+<div class="bootstrap-wrapper" style="margin-top: 30px;">  
+    <div class="container">  
+        <div class="row">  
+            <div class="col-md-6 offset-md-3">  
+               
+                <mat-card *ngIf="userId">  
+                  
+             
+                     <form #signupForm="ngForm" (ngSubmit)="onSubmit();">  
+
+                
+
+                        <mat-form-field class="full-width" appearance="outline">  
+                            <mat-label>Select Rating level</mat-label>  
+                            <mat-select (selectionChange)="onChange($event)">  
+                                <mat-option [value]="1">1</mat-option>  
+                                <mat-option [value]="2">2</mat-option>  
+                                <mat-option [value]="3">3</mat-option>  
+                                <mat-option [value]="4">4</mat-option>  
+                                <mat-option [value]="5">5</mat-option>  
+                            </mat-select>  
+                            
+                          </mat-form-field>  
+                           <mat-form-field class="full-width" appearance="outline">  
+                            <mat-label>Review</mat-label>  
+                            <input  id="review"   class="form-control"  #review="ngModel"  [(ngModel)]="rating.review"  name="review" 
+                               type="text" required matInput placeholder="Ex-abc college">  
+                            <div class="error-msg"  *ngIf="(review.touched || signupForm.submitted) && review.errors?.required">  
+                              Review is Required! 
+                            </div>  
+                            
+                           </mat-form-field>  
+
+                          
+                          
+
+                           
+
+
+    
+
+
+                         <div class="container text-center"> 
+                            <button type="submit"  class="button"  [disabled]="!signupForm.form.valid"  mat-raised-button 
+                              color="primary"   id="submitButton" >submmit review</button> 
+                    
+                              <button (click)="cancel()"  class="button"  mat-raised-button style="margin-left: 30px;" 
+                              style="background-color: whitesmoke;"   id="submitButton" >cancel</button> 
+                          </div> 
+                      </form> 
+                </mat-card> 
+            </div> 
+        </div> 
+    </div> 
+</div> 
+

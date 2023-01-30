@@ -1,0 +1,128 @@
+ 
+    <div class="bootstrap-wrapper" style="margin-top: 30px;"> 
+        <div class="container"> 
+            <div class="row"> 
+                <div class="col-md-6 offset-md-3"> 
+                    <mat-card> 
+                        
+                 
+                        <form #signupForm="ngForm" (ngSubmit)="onSubmit(); signupForm.resetForm() "> 
+ 
+                             
+ 
+ 
+                             <mat-form-field class="full-width" appearance="outline"> 
+                                <mat-label>Enter student Name</mat-label> 
+                                <input  id="instituteName"  class="form-control" #instituteName="ngModel" [(ngModel)]="admission.student.studentName" name="instituteName" 
+                                   type="text" required matInput placeholder="Ex-abc college"> 
+                                <div class="error-msg" *ngIf="(instituteName.touched || signupForm.submitted) && instituteName.errors?.required"> 
+                                  institute name is Required!  
+                                </div>  
+                                 
+                              </mat-form-field> 
+ 
+ 
+                               <mat-form-field class="full-width" appearance="outline"> 
+                                <mat-label>Enter Mobile Number</mat-label> 
+                                <input id="mobileNumber" class="form-control" #mobile="ngModel" [(ngModel)]="admission.student.mobile" name="mobile" type="number" 
+                                  pattern="^[6-9]\d{9}$" required matInput placeholder="1234567890"> 
+                                <div class="error-msg" 
+                                  *ngIf="(mobile.touched || signupForm.submitted) && mobile.errors?.required">  
+                                  Mobile Number is Required! 
+                                </div> 
+                                <div class="error-msg" *ngIf="(mobile.touched || signupForm.submitted) && mobile.errors?.pattern"> 
+                                  Enter a valid Mobile Number 
+                                </div> 
+                              </mat-form-field> 
+ 
+                              <mat-form-field class="full-width" appearance="outline"> 
+                                <mat-label>Enter Gender</mat-label> 
+                                <input  id="studentGender" class="form-control" #studentGender="ngModel" [(ngModel)]="admission.student.studentGender" name="studentGender" 
+                                  pattern="[mMfF]{1}" type="text" required matInput placeholder="Enter M for male F for female"> 
+                                <div class="error-msg" 
+                                  *ngIf="(studentGender.touched || signupForm.submitted) && studentGender.errors?.required"> 
+                                  Gender is Required! 
+                                </div> 
+                                <div class="error-msg" *ngIf="(studentGender.touched || signupForm.submitted) && studentGender.errors?.pattern"> 
+                                  Enter m or M for male f or F for female 
+                                </div> 
+                              </mat-form-field> 
+ 
+                              <mat-form-field class="full-width" appearance="outline"> 
+                                <mat-label>Enter DOB</mat-label> 
+                                <input  id="studentDOB" class="form-control" #studentDOB="ngModel" [(ngModel)]="admission.student.studentDOB" name="studentDOB" 
+                                  pattern="\d{4}-[0-1][0-9]-[0-3][0-9]" type="text" required matInput placeholder="YYYY-MM-DD Ex-2022-03-31"> 
+                                <div class="error-msg" 
+                                  *ngIf="(studentDOB.touched || signupForm.submitted) && studentDOB.errors?.required"> 
+                                  Date of Birth is Required! 
+                                </div> 
+                                <div class="error-msg" *ngIf="(studentDOB.touched || signupForm.submitted) && studentDOB.errors?.pattern"> 
+                                  enter in proper format Ex-2022-01-31 
+                                </div> 
+                              </mat-form-field> 
+    
+                              <mat-form-field class="full-width" appearance="outline"> 
+                                <mat-label>Enter Permanent Address</mat-label> 
+                                <input  id="address"  class="form-control" #address="ngModel" [(ngModel)]="admission.student.address" name="address" 
+                                   type="text" required matInput placeholder="Ex-1-11,streetname,nameoftheplace,statename-pincode">  
+                                <div class="error-msg" *ngIf="(address.touched || signupForm.submitted) && address.errors?.required"> 
+                                  institute name is Required! 
+                                </div> 
+                                 
+                              </mat-form-field> 
+ 
+                              <mat-form-field class="full-width" appearance="outline"> 
+                                <mat-label>Enter sslc percentage</mat-label> 
+                                <input  id="sslc" class="form-control" #mobileno="ngModel" [(ngModel)]="admission.student.sslc" name="sslc" type="number" #sslc="ngModel" 
+                                  min="0" max="99"  required matInput placeholder="Ex-90 if not done enter 0" pattern="^([0-9][0-9]?|)$" > 
+                                <div class="error-msg" 
+                                  *ngIf="(sslc.touched || signupForm.submitted) && sslc.errors?.required"> 
+                                  sslc percentage is Required! 
+                                </div> 
+                                <div class="error-msg" *ngIf="(sslc.touched || signupForm.submitted) && sslc.errors?.pattern"> 
+                                  Enter range between 0 to 99 
+                                </div> 
+                                
+                              </mat-form-field> 
+                               
+                              <mat-form-field class="full-width" appearance="outline"> 
+                                <mat-label>Enter hsc percentage</mat-label> 
+                                <input  id="hsc" class="form-control" #mobileno="ngModel" [(ngModel)]="admission.student.hsc" name="hsc" type="number" #hsc="ngModel" 
+                                  min="0" max="99"  required matInput placeholder="Ex-90 if not done enter 0" pattern="^([0-9][0-9]?|)$" > 
+                                <div class="error-msg" 
+                                  *ngIf="(hsc.touched || signupForm.submitted) && hsc.errors?.required"> 
+                                  hsc percentage is Required! 
+                                </div> 
+                                <div class="error-msg" *ngIf="(hsc.touched || signupForm.submitted) && hsc.errors?.pattern"> 
+                                  Enter range between 0 to 99 
+                                </div> 
+                               </mat-form-field> 
+ 
+                              <mat-form-field class="full-width" appearance="outline"> 
+                                <mat-label>Enter diploma percentage</mat-label> 
+                                <input  id="diploma" class="form-control" #mobileno="ngModel" [(ngModel)]="admission.student.diploma" name="diploma" type="number" #diploma="ngModel" 
+                                  min="0" max="99"  required matInput placeholder="Ex-90 if not done enter 0" pattern="^([0-9][0-9]?|)$" > 
+                                <div class="error-msg" 
+                                  *ngIf="(diploma.touched || signupForm.submitted) && diploma.errors?.required"> 
+                                  diploma percentage is Required! 
+                                </div> 
+                                <div class="error-msg" *ngIf="(diploma.touched || signupForm.submitted) && diploma.errors?.pattern"> 
+                                  Enter range between 0 to 99 
+                                </div> 
+                                </mat-form-field> 
+                       
+ 
+                             <div class="container text-center"> 
+                                <button type="submit"  [disabled]="!signupForm.form.valid" mat-raised-button 
+                                  color="primary"  id="submitButton" >Enroll now</button> 
+                              </div> 
+                          </form> 
+                    </mat-card> 
+                </div> 
+            </div> 
+        </div> 
+    </div> 
+    
+    
+    
+     

@@ -1,0 +1,51 @@
+
+
+
+
+<br/>  
+<app-search></app-search>  
+<br/>  
+<br/>  
+<div class="container margin-cut">  
+  <table class="table table-striped">  
+    <thead class="tablehead">  
+        <tr>  
+            <th>Student id</th>  
+            <th>Student Name</th>  
+            <th>Mobile</th>  
+            <th>course</th>  
+            <th>institute</th>  
+            <th>admission status</th>  
+            <th>Actions</th>  
+            
+        </tr>  
+    </thead>  
+     <tbody >  
+        
+        <tr *ngFor="let admission of admissions | filter:searchtext |paginate:{itemsPerPage:10,currentPage:p}" >  
+            <td>{{admission.student.studentId}}</td>  
+            <td>{{admission.student.studentName}}</td>  
+            <td>{{admission.student.mobile}}</td>  
+            <td>{{admission.course.courseName}}</td>  
+            <td>{{admission.course.institute.instituteName}}</td>  
+            <td>{{admission.admissionStatus.statusName}}</td>  
+            
+           
+            <td>  
+                
+                <button mat-icon-button color="warn" ><mat-icon>delete_outline</mat-icon></button>  
+                
+            </td>  
+            
+    
+        </tr>  
+
+    </tbody>   
+    
+    </table>  
+    <pagination-controls class="ali"(pageChange)="p=$event"></pagination-controls>  
+      
+
+
+</div>  
+

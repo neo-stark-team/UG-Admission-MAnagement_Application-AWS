@@ -1,0 +1,19 @@
+/* css for full width class*/ 
+.full-width{ 
+    width: 100%; 
+} 
+
+/*css for half width class*/
+.half-width{ 
+    width:35%; 
+    margin-right: 50px; 
+} 
+
+/*css for error msg class*/ 
+.error-msg{ 
+    font-size: 13px; 
+    color: red; 
+} 
+.button{ 
+    margin-right: 30px;; 
+} 

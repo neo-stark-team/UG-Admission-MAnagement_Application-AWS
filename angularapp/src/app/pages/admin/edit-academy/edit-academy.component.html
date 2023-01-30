@@ -1,0 +1,105 @@
+
+    <div class="bootstrap-wrapper" style="margin-top: 30px;">   
+        <div class="container">   
+            <div class="row">   
+                <div class="col-md-6 offset-md-3">   
+                    <mat-card>   
+                         
+                     
+                        <form #signupForm="ngForm" (ngSubmit)="onSubmit(); signupForm.resetForm()">   
+     
+                            
+                            <mat-form-field class="full-width" appearance="outline">     
+                              <mat-label>Enter Institute Id</mat-label>    
+                              <input [disabled]="true" id="instituteId"  class="form-control" #instituteId="ngModel" [(ngModel)]="insti.instituteId" name="instituteId"
+                             type="email" required matInput placeholder="Enter instituteId">       
+                              <div class="error-msg" *ngIf="(instituteId.touched || signupForm.submitted) && instituteId.errors?.required">    
+                                instituteId is Required!   
+                              </div>    
+                               
+                             </mat-form-field>   
+ 
+                              //name of institute       
+                             <mat-form-field class="full-width" appearance="outline">    
+                                <mat-label>Enter Institute Name</mat-label>      
+                                <input  id="instituteName"  class="form-control" #instituteName="ngModel" [(ngModel)]="insti.instituteName" name="instituteName" 
+                                   type="text" required matInput placeholder="Ex-abc college">      
+                                <div class="error-msg" *ngIf="(instituteName.touched || signupForm.submitted) && instituteName.errors?.required">     
+                                  institute name is Required!   
+                                </div>   
+                                  
+                               </mat-form-field>   
+ 
+      
+                               <mat-form-field class="full-width" appearance="outline">  
+                                <mat-label>Enter Mobile Number</mat-label>   
+                                <input id="mobileNumber" class="form-control" #mobile="ngModel" [(ngModel)]="insti.mobile" name="mobile" type="number"   
+                                  pattern="^[6-9]\d{9}$" required matInput placeholder="1234567890">   
+                                <div class="error-msg"   
+                                  *ngIf="(mobile.touched || signupForm.submitted) && mobile.errors?.required">    
+                                  Mobile Number is Required!     
+                                </div>      
+                                <div class="error-msg" *ngIf="(mobile.touched || signupForm.submitted) && mobile.errors?.pattern">     
+                                  Enter a valid Mobile Number    
+                                </div>     
+                              </mat-form-field>     
+      
+     
+                             <mat-form-field class="full-width" appearance="outline">      
+                                <mat-label>Enter Email</mat-label>      
+                                <input  id="email"  class="form-control" #email="ngModel" [(ngModel)]="insti.email" name="email"   
+                                  pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" type="email" required matInput placeholder="Ex-abcxyz@gmail.com">   
+                                <div class="error-msg" *ngIf="(email.touched || signupForm.submitted) && email.errors?.required">   
+                                  Email Address is Required!   
+                                </div>  
+                                <div class="error-msg" *ngIf="(email.touched || signupForm.submitted) && email.errors?.pattern">   
+                                  Enter a valid Email Address   
+                                </div>   
+                               </mat-form-field>      
+  
+                           
+                                 
+                             <mat-form-field class="full-width" appearance="outline" style="height:100px">   
+                                <mat-label>Enter Description</mat-label>   
+                                <input  id="instituteDescription"   class="form-control" #instituteDescription="ngModel" [(ngModel)]="insti.instituteDescription" name="instituteDescription"
+                                type="text" required matInput placeholder="atleast 10 character" minlength="10" maxlength="150">   
+                                <div class="error-msg" *ngIf="(email.touched || signupForm.submitted) && email.errors?.required">   
+                                  institute Description is Required!   
+                                </div>   
+                                
+                               </mat-form-field>     
+ 
+                               <mat-form-field class="full-width" appearance="outline">   
+                                 
+                                 
+                                 
+                                <mat-label>Enter instituteAddress</mat-label>      
+                                <input  id="instituteAddress"  class="form-control" #instituteAddress="ngModel" [(ngModel)]="insti.instituteAddress" name="instituteAddress"
+                                type="text" required matInput placeholder="Enter address of college" >     
+                                <div class="error-msg" *ngIf="(instituteAddress.touched || signupForm.submitted) && instituteAddress.errors?.required">  
+                                  institute Description is Required!      
+                                </div>    
+                                     
+                               </mat-form-field>   
+                                        
+   
+  
+   
+ 
+                             <div class="container text-center">   
+                                <button type="submit" [disabled]="!signupForm.form.valid" mat-raised-button   
+                                  color="primary"  id="submitButton" >Edit Institute</button>     
+                              </div>   
+                          </form>   
+                    </mat-card>    
+                </div>     
+              
+              
+              
+            </div>         
+        </div>    
+    </div>         
+    
+    
+    
+     

@@ -1,0 +1,39 @@
+<br/>
+<app-search></app-search>
+
+<br/>
+
+<section class="container">
+    <div class="card" *ngFor="let course of courses" >
+
+        <div id="userCourseGrid1">
+        <div class="card-image">
+            
+            
+            <div >
+         
+                <img class="blurimage image"   src="assets/course.jpg" alt="college.jpg"  /><div class="center"></div>
+            </div>
+            </div>
+        <div style="font-size: 13px; margin-top: 6px;" ><b>college name: {{course.institute.instituteName}}</b></div>
+        <div style="margin-top: 5px; font-size: 20px;">{{course.courseName}}</div>
+        <div class="desc" style="margin-top: 50px;">
+            <p>{{course.courseDescription}}</p></div>
+             <div class="set" style="margin-top: 70px;" >
+            
+            <span class="child" >CourseDuration:{{course.courseDuration}}Years</span>
+            <span class="child" style="padding-left: 100px;">
+            
+            <button type="submit"  mat-raised-button [routerLink]="course.courseId"
+            color="primary"  id="enroll" >Enroll Course</button>
+            </span>
+        </div>
+    </div>
+    </div>
+    
+</section>
+
+
+
+
+
